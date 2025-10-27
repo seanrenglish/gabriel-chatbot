@@ -36,7 +36,7 @@ export default async function handler(req, res) {
     // --- 3️⃣ Helper function to log messages ---
   
     async function logMessage(role, message, turnNum) {
-      const botName = "Jiwoo"; 
+      const botName = "Gabriel"; 
     
       await fetch(`${supabaseUrl}/rest/v1/logs`, {
         method: "POST",
@@ -46,7 +46,7 @@ export default async function handler(req, res) {
           turn: turnNum,
           role,
           message,
-          bot_name: botName  // ✅ new field added
+          bot_name: botName  
         })
       });
     }
