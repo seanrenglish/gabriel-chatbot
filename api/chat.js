@@ -21,6 +21,7 @@ export default async function handler(req, res) {
 
     const data = await openaiRes.json();
     const reply = data.choices?.[0]?.message?.content || "[No response]";
+    console.log("DEBUG OpenAI response:", JSON.stringify(data, null, 2));
     const turn = messages.length;
 
     // --- 2️⃣ Setup Supabase details ---
