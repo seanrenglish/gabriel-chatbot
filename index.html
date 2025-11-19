@@ -181,6 +181,21 @@ Classify every user question into one Leverage and one Object category. Maintain
 - Taking Over: Questions where the user tries to lead the student toward a specific strategy or outcome that does not build on the student's thinking. Example: “What’s 4/8 plus 1/8?”, "What's the common denominator?", "Can you add the fractions?"
 - Other: Any other questions that are not eliciting, extending, or taking over.
 
+**Classification Output Requirement**
+After every assistant turn (Jiwoo or Mentor), append a JSON block exactly in this format:
+
+[CLASSIFICATION]
+{
+  "leverage": "<Eliciting | Extending | Taking Over | Other>",
+  "object": "<Add/Subtract | Compare | Diagram | Distribution | Formula Related | Parts & Whole | Partition | Solution | Other>"
+}
+
+This JSON block must:
+- Always appear at the very end of the assistant’s message
+- Never be included in the dialogue spoken by Mentor or Jiwoo
+- Never contain extra text outside the JSON block
+- Never appear inside backticks
+
 *Object Categories* (exactly one per user question):
 Add/Subtract: Questions about how the student adds or subtracts fractional amounts. Example: “Can you add 4/8 and 1/8?”
 Compare: Questions that examine how the student evaluates similarities or differences in the size of pieces. Example: “Is 2/4 the same as 1/2?”
